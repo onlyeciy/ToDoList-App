@@ -1,5 +1,6 @@
 //Variables
 let toDoList = []
+let newToDoList = []
 let completedTask = []
 let ids = 1
 
@@ -24,6 +25,11 @@ const task4 ={
     task : "testing",
     status : "incomplete"
 }
+const task5 ={
+    id : ids++,
+    task : "reading",
+    status : "incomplete"
+}
 
 //1. Function - add task
 const addTask = (task) => toDoList.push(task)
@@ -31,23 +37,25 @@ addTask(task1)
 addTask(task2)
 addTask(task3)
 addTask(task4)
+addTask(task5)
 
 //2. Function - remove task
 const removeTask = (id) =>{
-    toDoList.splice(toDoList.findIndex(element => element.id === id) , 1)
+    toDoList = toDoList.filter(task => task.id !== id)
 }
 
 //3. Function - change task status = completed
-const statusChange = (id) =>{
-    let task = toDoList.find((toDoList) => toDoList.id === id)
-    task.status = 'completed'
-    completedTask.push(task)
-
-}
+const statusChange = (id) => completedTask = toDoList.map(element =>{
+    if (element.id === id){
+        return {...element, status: 'completed'}
+    }
+    else{
+        return element
+    }
+})
 
 removeTask(1)
 statusChange(2)
-statusChange(3)
 console.log(toDoList)
 console.log(completedTask)
 
