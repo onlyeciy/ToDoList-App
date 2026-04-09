@@ -4,9 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
     <title>To do List no UI</title>
 </head>
 <body>
-    <h1>ToDo List</h1>
+    <div class="container">
+        <h1>Hello, </h1>
+
+        <div class="input-task">
+            <p>Add your task</p>
+            <button class="add-task-btn">ADD TASK</button>
+        </div>
+
+        <div class="task-list">
+            <h2>Task List</h2>
+            <div class="task-content">
+                <div class="task-text">
+                    <span class="task">Task 1</span>
+                    <span class="task-status">INCOMPLETE</span>
+                </div>
+                <div class="task-buttons">
+                    <button class="done-task">MARK AS DONE</button>
+                    <button class="delete-task">DELETE</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="task-list-completed">
+            <h2>Task Completed</h2>
+            <div class="task-content">
+                <div class="task-text">
+                    <span class="task">Task 1</span>
+                    <span class="task-status">COMPLETED</span>
+                </div>
+                <div class="task-buttons">
+                    <button class="done-task">MARK AS DONE</button>
+                    <button class="delete-task">DELETE</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
