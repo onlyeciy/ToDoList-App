@@ -29,6 +29,15 @@ body{
     justify-content: center;
     padding: 40px;
 }
+
+h1{
+    font-size: var(--h1-size);
+}
+
+h2{
+    font-size: var(--h2-size);
+}
+
 .container{
     display: flex;
     flex-direction: column;
