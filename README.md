@@ -1,4 +1,4 @@
-# To-Do List - NO UI (JavaScript personal project)
+# To-Do List (Personal project)
 
 ## Overview
 This project is a simple To-Do List system built using plain JavaScript (No UI).  
