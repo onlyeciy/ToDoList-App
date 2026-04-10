@@ -73,9 +73,12 @@ h2{
     border: none;
 }
 
-p {
+#label-input {
     font-size: var(--caption-text-size);
     color: grey;
+    border: none;
+    background: none;
+    outline: none;
     
 }
 
@@ -83,15 +86,14 @@ p {
     width: 100%;
 }
 
-.task-content{
+.tasks-ul{
     display: flex;
     justify-content: space-between ;
     align-items: center;
     width: 100%;
-    background-color: var(--task-bg-color);
-    border-radius: 12px;
-    padding: 20px;
     margin-top: 12px;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .task-status{
@@ -102,13 +104,29 @@ p {
     border-radius: 12px;
 }
 
+li{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.div-task{
+    display: flex;
+    gap: 12px;
+}
+
 .task{
     font-size: var(--task-text);
     font-weight: 500;
 }
 
-.task-text{
+li{
+    background-color: var(--task-bg-color);
+    border-radius: 12px;
+    padding: 20px;
     display: flex;
+    width: 100%;
     gap:12px;
 }
 
