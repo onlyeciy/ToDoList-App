@@ -3,11 +3,11 @@ let addTaskBtn = document.querySelector(".add-task-btn");
 let labelInput = document.querySelector("#label-input");
 let taskText = document.querySelector(".task-text");
 let tasksUl = document.querySelector(".tasks-ul");
+let userName = document.querySelector('h1')
 
 //Variables
+let user = 'Prayshe'
 let toDoList = [];
-let newToDoList = [];
-let completedTask = [];
 let ids = 1;
 
 // //Task List
@@ -36,6 +36,8 @@ let ids = 1;
 //     task : "reading",
 //     status : "incomplete"
 // }
+
+userName.textContent += user
 const render = () => {
   tasksUl.innerHTML = "";
 
@@ -62,11 +64,23 @@ const render = () => {
     taskSpan.innerText = task.task;
     taskStatus.innerText = task.status;
 
+    //Compelte button
+    const doneTask = document.createElement('button')
+    divBtns.append(doneTask)
+    doneTask.setAttribute('class','done-task')
+    doneTask.innerText = " MARK AS DONE"
+    doneTask.addEventListener('click', () =>{
+      taskStatus.innerHTML = statusChange(task.id)
+    })
+
     //Delete button
     const deleteButton = document.createElement('button')
     divBtns.append(deleteButton)
     deleteButton.setAttribute('class','delete-task')
     deleteButton.innerText = "DELETE"
+    deleteButton.addEventListener('click', () =>{
+      removeTask(task.id)
+    }) 
   });
 };
 
@@ -81,7 +95,6 @@ const addTask = () => {
     };
 
     toDoList.push(task);
-    console.log(toDoList);
   } else {
     return;
   }
@@ -93,22 +106,24 @@ addTaskBtn.addEventListener("click", addTask);
 //2. Function - remove task
 const removeTask = (id) => {
   toDoList = toDoList.filter((task) => task.id !== id);
-  console.log('button clicked')
   render()
 };
 
 
 //3. Function - change task status = completed
-const statusChange = (id) =>
-  (completedTask = toDoList.map((element) => {
+const statusChange = (id) =>{
+  (toDoList = toDoList.map((element) => {
     if (element.id === id) {
       return { ...element, status: "completed" };
     } else {
       return element;
     }
+
   }));
+  render()
+}
 
 // removeTask(1)
 // statusChange(2)
-console.log(toDoList);
-console.log(completedTask);
+// console.log(toDoList);
+// console.log(completedTask);
