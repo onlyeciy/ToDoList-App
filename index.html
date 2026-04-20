@@ -8,60 +8,43 @@
     <title>To do List no UI</title>
   </head>
   <body>
-    <div class="container">
-      <h1>Hello, </h1>
-            <div class="new-task">
-        <button id="new-task-btn">New Task +</button>
+    <div class="app">
+      <h1 class="app__title">Hello, </h1>
+
+      <div class="task">
+        <button class="task__new-btn">New Task +</button>
       </div>
-      <div class="task-container">
-              <div class="input-task">
-        <div class="text-container">
-          <input
-            id="input-title"
-            type="text"
-            placeholder="Title"
-            maxlength="100"
-          />
-          <input id="input-desc" type="text" placeholder="Description" />
-        </div>
-        <div class="input-btns">
-          <a href="#">Date</a>
-          <div class="add-cancel-btn">
-            <button class="cancel-btn">CANCEL</button>
-            <button class="add-task-btn">ADD TASK</button>
+
+      <div class="task__form">
+        <div class="task__inputs">
+          <div class="task__text-container">
+            <input
+              class="task__input--title"
+              type="text"
+              placeholder="Title"
+              maxlength="100"
+            />
+            <input
+              class="task__input--desc"
+              type="text"
+              placeholder="Description"
+            />
+          </div>
+
+          <div class="task__actions">
+            <a href="#" class="task__date-btn">Date</a>
+
+            <div class="task__form-buttons">
+              <button class="task__cancel-btn">CANCEL</button>
+              <button class="task__add-btn">ADD TASK</button>
+            </div>
           </div>
         </div>
+
+        <div class="task__list">
+          <ul class="task__items"></ul>
+        </div>
       </div>
-
-      <div class="task-list">
-        <!-- <div class="task-content"> -->
-        <ul class="tasks-ul">
-          <!-- <span class="task">Task 1</span>
-                    <span class="task-status">INCOMPLETE</span> -->
-        </ul>
-        <!-- <div class="task-buttons"> -->
-        <!-- <button class="done-task">MARK AS DONE</button>
-                    <button class="delete-task">DELETE</button> -->
-        <!-- </div> -->
-        <!-- </div> -->
-      </div>
-
-      <!-- <div class="task-list-completed">
-            <h2>Task Completed</h2>
-            <div class="task-content">
-                <div class="task-text">
-                    <span class="task">Task 1</span>
-                    <span class="task-status">COMPLETED</span>
-                </div>
-                <div class="task-buttons">
-                    <button class="done-task">MARK AS DONE</button>
-                    <button class="delete-task">DELETE</button>
-                </div>
-            </div>
-        </div> -->
-      </div>
-
-
     </div>
   </body>
 </html>

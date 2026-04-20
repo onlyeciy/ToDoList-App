@@ -8,6 +8,7 @@
     --border-status-color: #3A534F;
     --status-bg-color: #84BEB6;
     --button-delete-color: #A96464;
+    --button-main-hover: #729c96;
 
     /* Fonts */
     --h1-size: 3.063rem;
@@ -30,15 +31,7 @@ body{
     padding: 40px;
 }
 
-h1{
-    font-size: var(--h1-size);
-}
-
-h2{
-    font-size: var(--h2-size);
-}
-
-.container{
+.app{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -53,22 +46,17 @@ h2{
     overflow: hidden;
 }
 
-.task-container{
-    overflow: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    height: 100%;
+.app__title{
+    font-size: var(--h1-size);
 }
 
-.new-task{
+.task{
     width: 100%;
     display: flex;
     justify-content: flex-end;
 }
 
-#new-task-btn{
+.task__new-btn{
     padding: 12px;
     background-color: var(--primary-button-color);
     color: white;
@@ -78,34 +66,20 @@ h2{
     transition: 150ms ease;
 }
 
-#new-task-btn:hover{
-    background-color: #84BEB6;
+.task__new-btn:hover{
+    background-color: var(--button-main-hover);
 }
 
-/* #input-overlay{
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 0;
-    height: 0;
-    position: absolute;
+.task__form{
+    overflow: auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    border-radius: 12px;
-    background-color: white;
-    box-shadow: 0 0 10px ;
-    transition: 300ms ease-in;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
 }
 
-#input-overlay.active{
-    width: 500px;
-    height: 300px;
-    padding: 24px 20px;
-    transition: 300ms ease-out; */
-/* } */
-
-.input-task{
+.task__inputs{
     display: none;
     flex-direction: column;
     justify-content: space-between;
@@ -121,12 +95,12 @@ h2{
 }
 
 
-.input-task.active{
+.task__inputs.active{
     display: flex;
     padding: 24px 20px;
 }
 
-.text-container{
+.task__text-container{
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -134,7 +108,7 @@ h2{
     margin-bottom: 8px;
 }
 
-#input-title{
+.task__input--title{
     background-color: var(--task-bg-color);
     border: 2px solid #AEAEAE;
     border-radius: 8px;
@@ -143,20 +117,20 @@ h2{
     font-weight: bold;
 }
 
-#input-desc{
+.task__input--desc{
     border: 2px solid #AEAEAE;
     border-radius: 8px;
     padding: 10px;
 }
 
-.input-btns{
+.task__actions{
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
 }
 
-a{
+.task__date-btn{
     text-decoration: none;
     color: #aeaeae;
     border: 2px solid #AEAEAE;
@@ -164,21 +138,27 @@ a{
     border-radius: 8px;
 }
 
-.add-cancel-btn{
+
+.task__form-buttons{
     display: flex;
     gap: 8px;
 }
 
-.cancel-btn{
+.task__cancel-btn{
     color: white;
     font-weight: bold;
     background-color: #AEAEAE;
     border-radius: 12px;
     padding: 12px;
     border: none;
+    transition: 300ms ease;
 }
 
-.add-task-btn{
+.task__cancel-btn:hover{
+    background-color: gray;
+}
+
+.task__add-btn{
     font-size: var(--caption-text-size);
     font-weight: 600;
     color: white;
@@ -186,22 +166,18 @@ a{
     border-radius: 12px;
     padding: 8px 20px;
     border: none;
+    transition: 300ms ease;
 }
 
-#label-input {
-    font-size: var(--caption-text-size);
-    color: grey;
-    border: none;
-    background: none;
-    outline: none;
-    
+.task__add-btn:hover{
+    background-color: var(--button-main-hover);
 }
 
-.task-list{
+.task__list{
     width: 100%;
 }
 
-.tasks-ul{
+.task__items{
     display: flex;
     justify-content: space-between ;
     align-items: center;
@@ -211,7 +187,53 @@ a{
     gap: 20px;
 }
 
-.task-status{
+li{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: var(--task-bg-color);
+    border-radius: 12px;
+    padding: 20px;
+    width: 100%;
+    gap:12px;
+}
+
+.task__content{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.task__buttons{
+    display: flex;
+    gap: 12px;
+}
+
+.task__title{
+    font-size: var(--task-text);
+    font-weight: bold;
+}
+
+.task__desc{
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #4d5d5a;
+}
+
+.task__desc.expanded{
+    width: 100%;
+    overflow: auto;
+    white-space: wrap;
+    text-overflow: none;
+}
+
+.task__status{
     background-color: var(--status-bg-color);
     color: var(--border-status-color);
     font-size: var(--button-text-size);
@@ -220,66 +242,7 @@ a{
     max-height: 28px;
 }
 
-li{
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-}
-
-.div-task{
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: flex-start;
-    width: 100%;
-}
-
-.desc-span{
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-.desc-span.see-full{
-    width: 100%;
-    overflow: auto;
-    white-space: wrap;
-    text-overflow: none;
-}
-
-.div-btns{
-    display: flex;
-    gap: 12px;
-}
-
-.task{
-    font-size: var(--task-text);
-    font-weight: bold;
-}
-
-.desc-span{
-    color: #4d5d5a;
-}
-
-li{
-    background-color: var(--task-bg-color);
-    border-radius: 12px;
-    padding: 20px;
-    display: flex;
-    width: 100%;
-    gap:12px;
-}
-
-.task-buttons{
-    display: flex;
-    gap: 12px;
-}
-
-.done-task{
+.task__done-btn{
     font-size: var(--button-text-size);
     font-weight: 600;
     color: white;
@@ -287,9 +250,14 @@ li{
     border-radius: 20px;
     padding: 12px 20px; 
     border: none;
+    transition: 300ms ease;
 }
 
-.delete-task{
+.task__done-btn:hover{
+    background-color: var(--button-main-hover);
+}
+
+.task__delete-btn{
     font-size: var(--button-text-size);
     font-weight: 600;
     color: white;
@@ -297,8 +265,9 @@ li{
     border-radius: 20px;
     padding: 12px 20px;
     border: none;
+    transition: 300ms ease;
 }
 
-.task-list-completed{
-    width: 100%;
+.task__delete-btn:hover{
+    background-color: #d09090;
 }
